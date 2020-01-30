@@ -18,13 +18,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-<<<<<<< HEAD
         mode = Start;
-=======
+
         GameObject gameObject = new GameObject("Pipe", typeof(SpriteRenderer));
         gameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.GetInstance().pipeHeadSprite;
         
->>>>>>> c5cfa2ba82ceec2efaa290c6563ac1da5273bde9
+
     }
 
     // Update is called once per frame
