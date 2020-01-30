@@ -20,7 +20,7 @@ public class Collision : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D col)
     {
         print("test");
     }
