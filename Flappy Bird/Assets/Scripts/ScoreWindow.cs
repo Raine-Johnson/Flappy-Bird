@@ -1,5 +1,4 @@
-﻿////////////////////*
-//By:Raine Johnson
+﻿//By:Raine Johnson
 //Date: 1/30/2020
 //Description: Creates the score window for the player to see
 using System.Collections;
