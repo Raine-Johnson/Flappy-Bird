@@ -21,6 +21,7 @@ public class GameAssets : MonoBehaviour
     }
 
     public Sprite pipeHeadSprite;
+    public Transform pfPipeHead;
 
     // Start is called before the first frame update
     void Start()
