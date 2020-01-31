@@ -13,23 +13,15 @@ public class GameManager : MonoBehaviour
     int score;
     int highscore;
     enum Mode { Start, Game, Menu }
-    public Mode mode;
+    //public Mode mode;
 
     // Start is called before the first frame update
     private void Start()
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> 2a31830ff39e6b320c18383d8d9daff81fe469b3
-        mode = Start;
+        //mode = Start;
 
         GameObject gameObject = new GameObject("Pipe", typeof(SpriteRenderer));
-        gameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.GetInstance().pipeHeadSprite;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 2a31830ff39e6b320c18383d8d9daff81fe469b3
+        gameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.GetInstance().pipeSprite;
 
     }
 
@@ -45,13 +37,13 @@ public class GameManager : MonoBehaviour
         {
             highscore = score;
         }
-        mode = Menu;
+        //mode = Menu;
     }
 
     public void Restart()
     {
         score = 0;
-        mode = Start;
+        //mode = Start;
     }
 }
 

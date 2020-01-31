@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeController : MonoBehaviour
+/*public class PipeController : MonoBehaviour
 {
     private List<Pipe> Pipes;
     private float time = 0.0f;
@@ -46,3 +46,4 @@ public class PipeController : MonoBehaviour
         pipeBodySpriteRenderer.size = new Vector2(PIPE_WIDTH, height);
     }
 }
+*/
