@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     {
         mode = Start;
 
-        GameObject gameObject = new GameObject("Pipe", typeof(SpriteRenderer));
-        gameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.GetInstance().pipeHeadSprite;
+        
         
 
     }
