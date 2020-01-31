@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+
+
         mode = Mode.Start;
     }
 
@@ -33,12 +36,14 @@ public class GameManager : MonoBehaviour
         {
             highscore = score;
         }
+
         mode = Mode.Menu;
     }
 
     public void Restart()
     {
         score = 0;
+
         mode = Mode.Start;
     }
 }

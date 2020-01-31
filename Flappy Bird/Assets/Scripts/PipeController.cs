@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeController : MonoBehaviour
+/*public class PipeController : MonoBehaviour
 {
     public GameObject pipe;
     private List<GameObject> Pipes;
@@ -41,3 +41,4 @@ public class PipeController : MonoBehaviour
         Pipes.Add(newPipe);
     }
 }
+*/

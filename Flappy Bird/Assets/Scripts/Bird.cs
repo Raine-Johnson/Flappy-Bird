@@ -9,13 +9,14 @@ public class Bird : MonoBehaviour
     {
         
     }
-    private const float JUMP_AMOUNT = 5f;
+
+    private const float JUMP_AMOUNT = 3f;
     private static Bird instance;
     public static Bird GetInstance()
     {
         return instance;
     }
-    //public event EventHandler OnDied;
+    //public event EventHandler OnDied;   
     private Rigidbody2D birdRigidBody2D;
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class Bird : MonoBehaviour
     {
         print("Test");
         birdRigidBody2D.bodyType = RigidbodyType2D.Static;
-        //if (OnDied != null) OnDied(this, EventArgs.Empty);
+        //  if (OnDied != null) OnDied(this, EventArgs.Empty);  
     }
     
 
