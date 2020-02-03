@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     int highscore;
     public enum Mode { Start, Game, Menu }
     public Mode mode;
+    public GameObject gameOverScreen;
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
 
     // Start is called before the first frame update
     private void Start()
