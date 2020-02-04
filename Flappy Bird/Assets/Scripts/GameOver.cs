@@ -18,16 +18,6 @@ public class GameOver : MonoBehaviour
     {
         
     }
-   
-    private void Hide()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void Show()
-    {
-        gameObject.SetActive(true);
-    }
 
     // Update is called once per frame
     void Update()

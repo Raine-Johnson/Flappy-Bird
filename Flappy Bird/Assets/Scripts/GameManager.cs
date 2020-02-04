@@ -15,17 +15,24 @@ public class GameManager : MonoBehaviour
     public enum Mode { Start, Game, Menu }
     public Mode mode;
     public GameObject gameOverScreen;
+    public PipeController pipeController;
+
     public void GameOver()
     {
-        gameOverScreen.SetActive(true);
+        gameOverScreen.gameObject.SetActive(true);
         Time.timeScale = 0;
+        if (score > highscore)
+        {
+            highscore = score;
+        }
+
+        mode = Mode.Menu;
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-
-
+        gameOverScreen.gameObject.SetActive(false);
         mode = Mode.Start;
     }
 
@@ -35,21 +42,14 @@ public class GameManager : MonoBehaviour
        
     }
 
-    void Death()
-    {
-        if(score > highscore)
-        {
-            highscore = score;
-        }
-
-        mode = Mode.Menu;
-    }
-
     public void Restart()
     {
         score = 0;
-
+        gameOverScreen.gameObject.SetActive(false);
+        pipeController.resetPipes();
+        flappyBird.GetComponent<Bird>().resetBird();
         mode = Mode.Start;
+
     }
 }
 
