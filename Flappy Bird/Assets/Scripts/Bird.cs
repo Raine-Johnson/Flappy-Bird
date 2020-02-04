@@ -10,7 +10,7 @@ public class Bird : MonoBehaviour
         
     }
     public GameManager gameManager;
-    private const float JUMP_AMOUNT = 3f;
+    private const float JUMP_AMOUNT = 5f;
     private static Bird instance;
     public static Bird GetInstance()
     {

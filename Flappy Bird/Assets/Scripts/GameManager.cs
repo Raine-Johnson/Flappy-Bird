@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     {
 
 
-
         mode = Mode.Start;
     }
 
