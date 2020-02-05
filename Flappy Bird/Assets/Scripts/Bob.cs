@@ -33,8 +33,6 @@ public class Bob : MonoBehaviour
         print("Bobbing");
         Physics2D.gravity = new Vector3(0f, bobStrength, 0f);
         bobStrength = -bobStrength;
-
-        //Physics2D.gravity = new Vector3(0f, -10, 0f);
-        //gameManager.Restart();
+        
     }
 }
