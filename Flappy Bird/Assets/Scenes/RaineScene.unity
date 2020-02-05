@@ -933,12 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a58623f66dcc7479e8f67b0b49cd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  gameManager: {fileID: 2138057087}
-  totalTime: 0.2
-  bobStrength: -10
-=======
->>>>>>> a5b127b15cb842ee38f71ea4fdc3e24df783fec3
 --- !u!1 &1347112585
 GameObject:
   m_ObjectHideFlags: 0

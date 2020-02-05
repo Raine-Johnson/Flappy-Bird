@@ -37,14 +37,15 @@ public class Bird : MonoBehaviour
     {
         if (gameManager.mode == GameManager.Mode.Menu)
         {
-            gameManager.mode = GameManager.Mode.Start;
+            gameManager.Restart();
         }
         else
         {
             if (gameManager.mode == GameManager.Mode.Start)
             {
                 gameManager.mode = GameManager.Mode.Game;
-                
+                Physics2D.gravity = new Vector3(0f, -10, 0f);
+
             }
             birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
         }

@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         mode = Mode.Start;
-        //Score.resetScore();
+        //score.ResetScore();
         score = 0;
         gameOverScreen.gameObject.SetActive(false);
         pipeController.resetPipes();
