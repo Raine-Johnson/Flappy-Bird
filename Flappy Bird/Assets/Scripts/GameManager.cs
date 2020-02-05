@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverScreen.gameObject.SetActive(false);
         mode = Mode.Start;
+        flappyBird.GetComponent<Bob>().startBob();
     }
 
     // Update is called once per frame
@@ -44,12 +45,12 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        mode = Mode.Start;
+        //Score.resetScore();
         score = 0;
         gameOverScreen.gameObject.SetActive(false);
         pipeController.resetPipes();
         flappyBird.GetComponent<Bird>().resetBird();
-        mode = Mode.Start;
-
     }
 }
 
