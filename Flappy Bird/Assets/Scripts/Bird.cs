@@ -38,13 +38,13 @@ public class Bird : MonoBehaviour
         if (gameManager.mode == GameManager.Mode.Menu)
         {
             gameManager.mode = GameManager.Mode.Start;
-            gameManager.Restart();
         }
         else
         {
             if (gameManager.mode == GameManager.Mode.Start)
             {
                 gameManager.mode = GameManager.Mode.Game;
+                
             }
             birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
         }

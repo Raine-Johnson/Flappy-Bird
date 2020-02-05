@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2138057087}
-  totalTime: 1
-  bobStrength: -20
+  totalTime: 0.2
+  bobStrength: -10
 --- !u!1 &1347112585
 GameObject:
   m_ObjectHideFlags: 0
