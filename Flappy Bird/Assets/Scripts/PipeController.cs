@@ -46,7 +46,7 @@ public class PipeController : MonoBehaviour
 
     private void CreatePipe()
     {
-        GameObject newPipe = Instantiate(pipe, new Vector3(startXPosition, Random.Range(-2,2), 0), Quaternion.identity);
+        GameObject newPipe = Instantiate(pipe, new Vector3(startXPosition, Random.Range(-1f,2f), 0), Quaternion.identity);
         Pipes.Add(newPipe);
         currentTimeBetween = 0.0f;
     }

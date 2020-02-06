@@ -10,12 +10,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject flappyBird;
-    int score;
     int highscore;
     public enum Mode { Start, Game, Menu }
     public Mode mode;
     public GameObject gameOverScreen;
     public PipeController pipeController;
+    public Score score;
 
     public float modeTime = 0;
 
@@ -24,39 +24,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        gameOverScreen.gameObject.SetActive(false);
-        mode = Mode.Start;
+        setMode(Mode.Start);
+        gameOverScreen.GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         modeTime += 0.1f;
-    }
+    } 
 
-    public void Restart()
+    public void buttonClick()
     {
-        mode = Mode.Start;
-        modeTime = 0;
-        //score.ResetScore();
-        score = 0;
-        gameOverScreen.gameObject.SetActive(false);
-        pipeController.resetPipes();
-        flappyBird.GetComponent<Bird>().resetBird();
-        
-    }
-
-    public void GameOver()
-    {
-        mode = GameManager.Mode.Game;
-        Physics2D.gravity = new Vector3(0f, -10f, 0f);
-        modeTime = 0;
-
-        gameOverScreen.gameObject.SetActive(true);
-        if (score > highscore)
-        {
-            highscore = score;
-        }
+        setMode(Mode.Start);
     }
 
     public void setMode(Mode newMode)
@@ -70,12 +50,21 @@ public class GameManager : MonoBehaviour
         switch (mode)
         {
             case Mode.Start:
+                Score.score = 0;
+                gameOverScreen.GetComponent<Canvas>().enabled = false;
+                pipeController.resetPipes();
+                flappyBird.GetComponent<Bird>().resetBird();
                 break;
 
             case Mode.Game:
                 break;
 
             case Mode.Menu:
+                gameOverScreen.GetComponent<Canvas>().enabled = true;
+                if (Score.score > highscore)
+                {
+                    highscore = Score.score;
+                }
                 break;
         }
     }

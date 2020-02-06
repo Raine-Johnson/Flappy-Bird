@@ -14,11 +14,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<UnityEngine.UI.Text>().text = score.ToString() + "Happy"; 
-    }
-
-    public void ResetScore()
-    {
-        score = 0;
+        GetComponent<UnityEngine.UI.Text>().text = score.ToString();
     }
 }
