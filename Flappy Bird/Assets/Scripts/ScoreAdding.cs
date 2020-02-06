@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class ScoreAdding : MonoBehaviour
 {
-    public static int score = 0;
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Score.score++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<UnityEngine.UI.Text>().text = score.ToString();
+        
     }
 }

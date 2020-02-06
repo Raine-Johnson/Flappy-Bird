@@ -10,46 +10,63 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject flappyBird;
-    int score;
     int highscore;
     public enum Mode { Start, Game, Menu }
     public Mode mode;
     public GameObject gameOverScreen;
-    public void GameOver()
-    {
-        gameOverScreen.SetActive(true);
-        Time.timeScale = 0;
-    }
+    public PipeController pipeController;
+    public Score score;
+
+    public float modeTime = 0;
+
+
 
     // Start is called before the first frame update
     private void Start()
     {
-
-
-        mode = Mode.Start;
+        setMode(Mode.Start);
+        gameOverScreen.GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-       
+        modeTime += 0.1f;
+    } 
+
+    public void buttonClick()
+    {
+        setMode(Mode.Start);
     }
 
-    void Death()
+    public void setMode(Mode newMode)
     {
-        if(score > highscore)
+        if(mode == newMode)
         {
-            highscore = score;
+            return;
         }
+        mode = newMode;
+        modeTime = 0;
+        switch (mode)
+        {
+            case Mode.Start:
+                Score.score = 0;
+                gameOverScreen.GetComponent<Canvas>().enabled = false;
+                pipeController.resetPipes();
+                flappyBird.GetComponent<Bird>().resetBird();
+                break;
 
-        mode = Mode.Menu;
-    }
+            case Mode.Game:
+                break;
 
-    public void Restart()
-    {
-        score = 0;
-
-        mode = Mode.Start;
+            case Mode.Menu:
+                gameOverScreen.GetComponent<Canvas>().enabled = true;
+                if (Score.score > highscore)
+                {
+                    highscore = Score.score;
+                }
+                break;
+        }
     }
 }
 
