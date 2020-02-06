@@ -5,21 +5,24 @@ using UnityEngine;
 public class Bird : MonoBehaviour
 {
     // Start is called before the first frame update
+    
+    public GameManager gameManager;
+    private const float JUMP_AMOUNT = 8f;
+    private static Bird bird;
+    public Vector3 startPosition;
+
     void Start()
     {
-        
+        bird.transform.position = startPosition;
     }
-    public GameManager gameManager;
-    private const float JUMP_AMOUNT = 5f;
-    private static Bird instance;
     public static Bird GetInstance()
     {
-        return instance;
+        return bird;
     }
     private Rigidbody2D birdRigidBody2D;
     private void Awake()
     {
-        instance = this;
+        bird = this;
         birdRigidBody2D = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
@@ -32,12 +35,27 @@ public class Bird : MonoBehaviour
     }
     private void Jump()
     {
-        birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
+        if (gameManager.mode == GameManager.Mode.Menu)
+        {
+            gameManager.Restart();
+        }
+        else
+        {
+            if (gameManager.mode == GameManager.Mode.Start)
+            {
+                gameManager.setMode(GameManager.Mode.Game);
+
+            }
+            birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameManager.GameOver();
     }
-    
+    public void resetBird()
+    {
+        bird.transform.position = startPosition;
+    }
 
 }
