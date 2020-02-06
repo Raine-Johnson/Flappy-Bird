@@ -10,12 +10,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject flappyBird;
-    int score;
     int highscore;
     public enum Mode { Start, Game, Menu }
     public Mode mode;
     public GameObject gameOverScreen;
     public PipeController pipeController;
+    public Score score;
 
     public float modeTime = 0;
 
@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         modeTime += 0.1f;
     } 
 
+    public void buttonClick()
+    {
+        setMode(Mode.Start);
+    }
+
     public void setMode(Mode newMode)
     {
         if(mode == newMode)
@@ -45,7 +50,7 @@ public class GameManager : MonoBehaviour
         switch (mode)
         {
             case Mode.Start:
-                score = 0;
+                Score.score = 0;
                 gameOverScreen.GetComponent<Canvas>().enabled = false;
                 pipeController.resetPipes();
                 flappyBird.GetComponent<Bird>().resetBird();
@@ -56,9 +61,9 @@ public class GameManager : MonoBehaviour
 
             case Mode.Menu:
                 gameOverScreen.GetComponent<Canvas>().enabled = true;
-                if (score > highscore)
+                if (Score.score > highscore)
                 {
-                    highscore = score;
+                    highscore = Score.score;
                 }
                 break;
         }

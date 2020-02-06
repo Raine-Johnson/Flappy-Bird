@@ -638,7 +638,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2138057087}
-        m_MethodName: Restart
+        m_MethodName: buttonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1333,6 +1333,7 @@ MonoBehaviour:
   mode: 0
   gameOverScreen: {fileID: 1261412515}
   pipeController: {fileID: 1347112589}
+  score: {fileID: 2146492541}
   modeTime: 0
 --- !u!1 &2146492537
 GameObject:
