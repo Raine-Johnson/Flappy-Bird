@@ -37,7 +37,7 @@ public class Bird : MonoBehaviour
     {
         if (gameManager.mode == GameManager.Mode.Menu)
         {
-            gameManager.Restart();
+            gameManager.setMode(GameManager.Mode.Start);
         }
         else
         {
@@ -51,7 +51,7 @@ public class Bird : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gameManager.GameOver();
+        gameManager.setMode(GameManager.Mode.Menu);
     }
     public void resetBird()
     {
