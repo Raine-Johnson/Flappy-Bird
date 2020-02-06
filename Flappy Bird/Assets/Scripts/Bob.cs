@@ -5,13 +5,11 @@ using UnityEngine;
 public class Bob : MonoBehaviour
 {
     public GameManager gameManager;
-    float timeLeft;
-    public float totalTime = 2;
     public float bobStrength = -10;
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = Mathf.Sqrt(totalTime); 
+         
     }
 
     // Update is called once per frame
@@ -19,19 +17,15 @@ public class Bob : MonoBehaviour
     {
         if (gameManager.mode == GameManager.Mode.Start)
         {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft < 0)
-            {
-                startBob();
-                timeLeft = totalTime;
-            }
-       }
+            float offset = Mathf.Sin(gameManager.modeTime)/2;
+            Bird.GetInstance().transform.position = new Vector3(-2, offset, 0);
+        }
     }
 
     public void startBob()
     {
         print("Bobbing");
-        Physics2D.gravity = new Vector3(0f, bobStrength, 0f);
+        Physics2D.gravity = new Vector3(0f, 0f, 0f);
         bobStrength = -bobStrength;
         
     }
