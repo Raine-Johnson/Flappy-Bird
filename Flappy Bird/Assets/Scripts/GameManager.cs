@@ -17,40 +17,67 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public PipeController pipeController;
 
-    public void GameOver()
-    {
-        gameOverScreen.gameObject.SetActive(true);
-        Time.timeScale = 0;
-        if (score > highscore)
-        {
-            highscore = score;
-        }
+    public float modeTime = 0;
 
-        mode = Mode.Menu;
-    }
+
 
     // Start is called before the first frame update
     private void Start()
     {
         gameOverScreen.gameObject.SetActive(false);
         mode = Mode.Start;
-        flappyBird.GetComponent<Bob>().startBob();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-       
+        modeTime += 0.1f;
     }
 
     public void Restart()
     {
         mode = Mode.Start;
+        modeTime = 0;
         //score.ResetScore();
         score = 0;
         gameOverScreen.gameObject.SetActive(false);
         pipeController.resetPipes();
         flappyBird.GetComponent<Bird>().resetBird();
+        
+    }
+
+    public void GameOver()
+    {
+        mode = GameManager.Mode.Game;
+        Physics2D.gravity = new Vector3(0f, -10f, 0f);
+        modeTime = 0;
+
+        gameOverScreen.gameObject.SetActive(true);
+        if (score > highscore)
+        {
+            highscore = score;
+        }
+    }
+
+    public void setMode(Mode newMode)
+    {
+        if(mode == newMode)
+        {
+            return;
+        }
+        mode = newMode;
+        modeTime = 0;
+        switch (mode)
+        {
+            case Mode.Start:
+                break;
+
+            case Mode.Game:
+                break;
+
+            case Mode.Menu:
+                break;
+        }
     }
 }
 

@@ -8,21 +8,21 @@ public class Bird : MonoBehaviour
     
     public GameManager gameManager;
     private const float JUMP_AMOUNT = 8f;
-    private static Bird instance;
+    private static Bird bird;
     public Vector3 startPosition;
 
     void Start()
     {
-        instance.transform.position = startPosition;
+        bird.transform.position = startPosition;
     }
     public static Bird GetInstance()
     {
-        return instance;
+        return bird;
     }
     private Rigidbody2D birdRigidBody2D;
     private void Awake()
     {
-        instance = this;
+        bird = this;
         birdRigidBody2D = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
@@ -43,8 +43,7 @@ public class Bird : MonoBehaviour
         {
             if (gameManager.mode == GameManager.Mode.Start)
             {
-                gameManager.mode = GameManager.Mode.Game;
-                Physics2D.gravity = new Vector3(0f, -10, 0f);
+                gameManager.setMode(GameManager.Mode.Game);
 
             }
             birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
@@ -56,7 +55,7 @@ public class Bird : MonoBehaviour
     }
     public void resetBird()
     {
-        instance.transform.position = startPosition;
+        bird.transform.position = startPosition;
     }
 
 }
