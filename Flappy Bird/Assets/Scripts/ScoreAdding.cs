@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreAdding : MonoBehaviour
 {
+    public AudioSource scoreAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +13,7 @@ public class ScoreAdding : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Score.score++;
+        scoreAudio.Play();
     }
 
     // Update is called once per frame

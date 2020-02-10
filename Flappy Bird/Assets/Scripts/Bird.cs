@@ -7,9 +7,12 @@ public class Bird : MonoBehaviour
     // Start is called before the first frame update
     
     public GameManager gameManager;
-    private const float JUMP_AMOUNT = 8f;
+    private const float JUMP_AMOUNT = 10f;
     private static Bird bird;
     public Vector3 startPosition;
+
+    public AudioSource flapAudio;
+    public AudioSource dieAudio;
 
     void Start()
     {
@@ -30,6 +33,7 @@ public class Bird : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            flapAudio.Play();
             Jump();
         }
     }
@@ -52,6 +56,7 @@ public class Bird : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameManager.setMode(GameManager.Mode.Menu);
+        dieAudio.Play();
     }
     public void resetBird()
     {
