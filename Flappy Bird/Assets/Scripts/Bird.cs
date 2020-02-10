@@ -11,6 +11,9 @@ public class Bird : MonoBehaviour
     private static Bird bird;
     public Vector3 startPosition;
 
+    public AudioSource flapAudio;
+    public AudioSource dieAudio;
+
     void Start()
     {
         bird.transform.position = startPosition;
@@ -30,6 +33,7 @@ public class Bird : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            flapAudio.Play();
             Jump();
         }
     }
@@ -52,6 +56,7 @@ public class Bird : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameManager.setMode(GameManager.Mode.Menu);
+        dieAudio.Play();
     }
     public void resetBird()
     {
