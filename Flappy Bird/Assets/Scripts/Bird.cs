@@ -7,7 +7,7 @@ public class Bird : MonoBehaviour
     // Start is called before the first frame update
     
     public GameManager gameManager;
-    private const float JUMP_AMOUNT = 8f;
+    private const float JUMP_AMOUNT = 10f;
     private static Bird bird;
     public Vector3 startPosition;
 
