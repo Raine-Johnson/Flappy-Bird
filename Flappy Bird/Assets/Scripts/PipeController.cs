@@ -5,6 +5,7 @@ using UnityEngine;
 public class PipeController : MonoBehaviour
 {
     public GameObject pipe;
+    public GameObject floor;
     private List<GameObject> Pipes = new List<GameObject>();
     private float time = 0.0f;
     public float timeToFirstPipe = 5.0f;
