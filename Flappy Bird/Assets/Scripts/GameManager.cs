@@ -36,7 +36,10 @@ public class GameManager : MonoBehaviour
 
     public void buttonClick()
     {
-        setMode(Mode.Start);
+        if (mode == GameManager.Mode.Menu)
+        {
+            setMode(Mode.Start);
+        }
     }
 
     public void setMode(Mode newMode)
