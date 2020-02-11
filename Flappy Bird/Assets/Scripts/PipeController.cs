@@ -5,6 +5,7 @@ using UnityEngine;
 public class PipeController : MonoBehaviour
 {
     public GameObject pipe;
+    public GameObject floor;
     private List<GameObject> Pipes = new List<GameObject>();
     private float time = 0.0f;
     public float timeToFirstPipe = 5.0f;
@@ -13,6 +14,7 @@ public class PipeController : MonoBehaviour
     private const float PIPE_WIDTH = 7.8f;
     public float startXPosition = 10.0f;
     public float endXPosition = -10.0f;
+    public float PipeSpeed = 0.2f;
     public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
@@ -21,20 +23,22 @@ public class PipeController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameManager.mode == GameManager.Mode.Game) 
         {
-            time += Time.deltaTime;
+            time += Time.fixedDeltaTime;
             currentTimeBetween += Time.deltaTime;
 
             if (time >= timeToFirstPipe && currentTimeBetween >= timeBetweenPipes)
             {
                 CreatePipe();
             }
+            //print("Pipes: " + Pipes.Count.ToString());
             for (int i = 0; i < Pipes.Count; i++)
             {
-                Pipes[i].transform.position -= new Vector3(0.01f, 0, 0);
+                
+                Pipes[i].transform.position -= new Vector3(PipeSpeed, 0, 0);
                 if (Pipes[i].transform.position.x <= endXPosition)
                 {
                     Destroy(Pipes[i]);

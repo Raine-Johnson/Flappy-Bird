@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird : MonoBehaviour
+public class PlusFlying : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+
     public GameManager gameManager;
     private const float JUMP_AMOUNT = 10f;
-    private static Bird bird;
+    public static Bird bird;
+    public Rigidbody2D BirdRB;
     public Vector3 startPosition;
 
     public AudioSource flapAudio;
@@ -25,17 +26,19 @@ public class Bird : MonoBehaviour
     private Rigidbody2D birdRigidBody2D;
     private void Awake()
     {
-        bird = this;
         birdRigidBody2D = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-
-            flapAudio.Play();
+            //flapAudio.Play();
             Jump();
+        }
+       if (Input.GetKey(KeyCode.Space))
+        {
+            BirdRB.AddForce(new Vector3(0, 10, 0));
         }
     }
     private void Jump()
@@ -51,7 +54,7 @@ public class Bird : MonoBehaviour
                 gameManager.setMode(GameManager.Mode.Game);
 
             }
-            birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
+            //birdRigidBody2D.velocity = Vector2.up * JUMP_AMOUNT;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,5 +66,4 @@ public class Bird : MonoBehaviour
     {
         bird.transform.position = startPosition;
     }
-
 }
