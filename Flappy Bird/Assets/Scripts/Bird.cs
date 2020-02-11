@@ -33,6 +33,7 @@ public class Bird : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+
             flapAudio.Play();
             Jump();
         }
