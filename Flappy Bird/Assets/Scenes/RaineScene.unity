@@ -1245,6 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipe: {fileID: 464565775172799138, guid: 7bce06f88ffe8c344bdb31cee544303d, type: 3}
+  floor: {fileID: 0}
   timeToFirstPipe: 2
   timeBetweenPipes: 2
   startXPosition: 10
@@ -1453,8 +1454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016206751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.731, z: 0}
-  m_LocalScale: {x: 3.3, y: 3.3, z: 1}
+  m_LocalPosition: {x: -0.016, y: 0.702, z: 0}
+  m_LocalScale: {x: 2.8815632, y: 2.9014292, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
